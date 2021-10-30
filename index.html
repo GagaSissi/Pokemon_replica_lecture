@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>Anzahl Pokemons ist {{pokemonCount}}</p>
+      <input type="text" v-model="searchQuery" />
+      <p>{{searchQuery}}</p>
+      <div
+        v-for="(pokemon, index) in pokemonFilteredList"
+        :key="index"
+        class="pokemon-card pokemon-card--electro"
+      >
+        <figure class="pokemon-card__figure">
+          <img
+            class="pokemon-card__img"
+            src="https://assets.codepen.io/6682512/25.png"
+            alt="Pikachu"
+          />
+          <figcaption class="pokemon-card__caption">
+            <h3 class="pokemon-card__name">{{ pokemon.name }}</h3>
+            <hr class="pokemon-card__spacer" />
+            <div class="pokemon-card__type">{{ pokemon.type }}</div>
+          </figcaption>
+        </figure>
+        <button @click="showDetails(index)">
+          {{detailsButtonText(index)}}
+        </button>
+        <ul v-if="pokemon.visibleDetails" class="pokemon-card__stats">
+          <li class="pokemon-card__stats-item">
+            <span class="pokemon-card__stats-item-value">{{ pokemon.hp }}</span>
+            <span class="pokemon-card__stats-item-title">HP</span>
+          </li>
+          <li class="pokemon-card__stats-item">
+            <span class="pokemon-card__stats-item-value"
+              >{{ pokemon.weight }}</span
+            >
+            <span class="pokemon-card__stats-item-title">Weight</span>
+          </li>
+          <li class="pokemon-card__stats-item">
+            <span class="pokemon-card__stats-item-value"
+              >{{ pokemon.height }}</span
+            >
+            <span class="pokemon-card__stats-item-title">Height</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>
