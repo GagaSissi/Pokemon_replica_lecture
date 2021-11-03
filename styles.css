@@ -1,3 +1,33 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.search-bar {
+  padding: 3rem 1.5rem;
+  background-color: #f28e0c;
+  color: white;
+  font-size: 2rem;
+  display: block;
+}
+
+input {
+  width: 11em;
+  padding: 0.1em;
+  border: 0.1em solid white;
+  border-radius: 0.3em;
+  font-size: 0.7em;
+}
+
+.pokemon-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 :root {
   --pokemonCardBg: red;
   --pokemonCardBorder: green;
@@ -25,6 +55,13 @@
     var(--pokemonCardBgPrimary) 0%,
     var(--pokemonCardBorder) 100%
   );
+}
+
+.pokemon-detail-button {
+  margin-top: 10px;
+  background: var(--pokemonCardBorder);
+  border-radius: 5px;
+  border: 3px solid var(--pokemonCardBorder);
 }
 
 .pokemon-card__figure {
